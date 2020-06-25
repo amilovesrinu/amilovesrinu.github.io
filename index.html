@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Ami ❤️ Rinu</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="./style.css">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <div class="balloon white">
+    <div class="star-red"></div>
+  <div class="face">
+    <div class="eye"></div>
+    <div class="mouth happy"></div>
+  </div>
+  <div class="triangle"></div>
+  <div class="string"></div>
+</div>
+
+<div class="balloon red">
+  <div class="star"></div>
+  <div class="face">
+    <div class="eye"></div>
+    <div class="mouth happy"></div>
+  </div>
+  <div class="triangle"></div>
+  <div class="string"></div>
+</div>
+
+<div class="balloon blue">
+  <div class="star"></div>
+  <div class="face">
+    <div class="eye"></div>
+    <div class="mouth happy"></div>
+  </div>
+  <div class="triangle"></div>
+  <div class="string"></div>
+</div>
+<div id="timer"></div>
+<css-doodle grid="5">
+  :doodle {
+    @grid: 10 / 100%; 
+  }
+  background: @pick(
+    #ff0198, #8156a8, #ff6d00, #ff75e4
+  );
+
+  transform: translate(
+    @rand(-50vw, 50vw),
+    @rand(-50vh, 50vh)
+  );
+
+  @size: 3.5vmin;
+  @shape: heart;
+  @place-cell: 50% 50%;
+
+  animation-name: explosion;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-duration: calc(@rand(3s, 5s, .1));
+  animation-delay: calc(@rand(-8s, -5s, .1));
+  animation-timing-function: 
+    cubic-bezier(.84, .02, 1, 1);
+
+  @keyframes explosion {
+    0% { opacity: 0; }
+    70% { opacity: 1; }
+    100% { transform: translate(0, 0); }
+  }
+</css-doodle>
+</div>
+<footer>
+Ami <i class="fa fa-heart pulse"></i> Rinu
+</footer>
+<!-- partial -->
+  <script  src="./script.js"></script>
+  <script src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+</body>
+</html>
