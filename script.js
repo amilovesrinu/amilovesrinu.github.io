@@ -1,7 +1,4 @@
-const year = new Date().getFullYear();
-const nikkah = new Date(year, 5, 27,11).getTime();
-console.log(nikkah);
-
+const nikkah = new Date(2020, 5,27,12).getTime();
 // countdown
 let timer = setInterval(function() {
 
@@ -9,24 +6,23 @@ let timer = setInterval(function() {
   const today = new Date().getTime();
 
   // get the difference
-  const diff = nikkah - today;
-
+  const diff = today - nikkah;
   // math
-  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365)); 
+  let months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30)); 
+  let days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30))/(1000 * 60 * 60 * 24));
   let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   // display
   document.getElementById("timer").innerHTML =
     "<div class=\"days\"> \
-  <div class=\"numbers\">" + days + "</div>days</div> \
+  <div class=\"numbers\">" + years + "</div>years</div> \
 <div class=\"hours\"> \
-  <div class=\"numbers\">" + hours + "</div>hours</div> \
+  <div class=\"numbers\">" + months + "</div>months</div> \
 <div class=\"minutes\"> \
-  <div class=\"numbers\">" + minutes + "</div>minutes</div> \
+  <div class=\"numbers\">" + days + "</div>days</div> \
 <div class=\"seconds\"> \
-  <div class=\"numbers\">" + seconds + "</div>seconds</div> \
+  <div class=\"numbers\">" + hours + "</div>hours</div> \
 </div>";
 
 }, 1000);
